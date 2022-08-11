@@ -12,16 +12,20 @@ This repository, contains the program that allows you to manipulate files ending
 
 **Edges** Takes an input image and applies the sobel operator on the given image. Like **Blur** edge detection works by taking each pixel, and modifying it based on a 3x3 matrix that surronds a given pixel. However in this scenario, we use the Sobel operator to comput the new value of each pixel by taking a weighted sum of the values for the surronding pixels. Since edges can occur in both x and y directions within an image, we use two different "kernels" to compute the edges in a particular direction for each colour channel for a given pixel. Each channel for a given pixel will be processed using the Gx and Gy kernels, meaning that each pixel will have six(6) values. 
 
-If A is the source image, then we can apply Gx and Gy to the image: 
+If 'I' is the source image, then we can apply Gx and Gy to the image: 
 
 $$Gx=\begin{pmatrix}
 +1&0&-1\\
 +2&0&-2\\
-+1&0&-1&\end{pmatrix} * A $$
++1&0&-1&\end{pmatrix} * I $$
 
 $$Gy=\begin{pmatrix}
 +1&+2&+1\\
  0&0&0\\
--1&-2&-1&\end{pmatrix} * A $$
+-1&-2&-1&\end{pmatrix} * I $$
 
-In order to combine the values for Gx and Gy, we can: 
+In order to combine the values for a given channel after using the kernels Gx and Gy, we can: 
+
+$$O=\sqrt{Gx^2 + Gy^2}$$(1)
+
+which generates 'O' the output which squares the result for each kernel, then adds that result and finally takes the square root to normalise the result. 
