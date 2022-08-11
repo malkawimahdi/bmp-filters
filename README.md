@@ -26,6 +26,6 @@ $$Gy=\begin{pmatrix}
 
 In order to combine the values for a given channel after using the kernels Gx and Gy, we can: 
 
-$$O=\sqrt{Gx^2 + Gy^2}$$(1)
+$$O=\sqrt{Gx^2 + Gy^2}$$
 
 which generates 'O' the output which squares the result for each kernel, then adds that result and finally takes the square root to normalise the result. 
