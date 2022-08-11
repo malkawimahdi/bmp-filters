@@ -29,3 +29,28 @@ In order to combine the values for a given channel after using the kernels Gx an
 $$O=\sqrt{Gx^2 + Gy^2}$$
 
 which generates 'O' the output which squares the result for each kernel, then adds that result and finally takes the square root to normalise the result. 
+
+## Usage
+
+The program generates an output depending on the flag used in the command line.
+
+To apply grayscale:
+```console
+mahdi@malkawimahdi:~$  ./filter -g INPUT_FILE.bmp OUTPUT_FILE_NAME.bmp
+```
+
+
+To apply reflect:
+```console
+mahdi@malkawimahdi:~$  ./filter -r INPUT_FILE.bmp OUTPUT_FILE_NAME.bmp
+```
+
+To apply box blur:
+```console
+mahdi@malkawimahdi:~$  ./filter -b INPUT_FILE.bmp OUTPUT_FILE_NAME.bmp
+```
+
+To apply Sobel operator:
+```console
+mahdi@malkawimahdi:~$  ./filter -e INPUT_FILE.bmp OUTPUT_FILE_NAME.bmp
+```
