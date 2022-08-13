@@ -32,6 +32,13 @@ which generates 'O' the output for a given pixel channel which squares the resul
 
 If the result is greater than 255, the C function fmin is used to cap the output at 255.
 
+## Compilation
+
+A makefile has been provided. To compile the program, clone this repository, enter the directory then:
+```console
+mahdi@malkawimahdi:~$  make filter
+```
+
 ## Usage
 
 The program generates an output depending on the flag used in the command line.
