@@ -12,7 +12,7 @@ This repository contains the program that allows you to manipulate files ending 
 
 **Sobel Operator:** Takes an input image and applies the Sobel operator on the given image. Like **Box Blur** edge detection works by taking each pixel, and modifying it based on a 3x3 matrix that surrounds a given pixel. However, in this scenario, we use the Sobel operator to compute the new value of each pixel by taking a weighted sum of the values for the surrounding pixels. Since edges can occur in both x and y directions within an image, we use two different "kernels" to compute the edges in a particular direction for each colour channel for a given pixel. Each channel for a given pixel will be processed using the Gx and Gy kernels, meaning that each pixel will have six(6) values. 
 
-If 'I' is the source image, then we can apply the kernels: Gx and Gy to the image: 
+If 'I' is the source image, then we can apply the kernels: Gx and Gy to each pixel within an image: 
 
 $$Gx=\begin{pmatrix}
 +1&0&-1\\
