@@ -4,15 +4,15 @@ This repository contains the program that allows you to manipulate files ending 
 
 ## Filters
 
-**Grayscale:** Takes an input image and turns the image into a black-and-white, by averaging the red, green and blue (RGB) values for a given pixel, which has the additional benefit of retaining the original image brightness.
+**Grayscale:** Takes an input image and turns the image into a black-and-white by averaging the red, green and blue (RGB) values for a given pixel, which has the additional benefit of retaining the original image brightness.
 
-**Reflection:** Takes an input image and reflects the image horizontally. The resulting image is what you would get by placing the original image in front of a mirror.
+**Reflection:** Takes an input image and reflects the image horizontally. You would get the resulting image by placing the original image in front of a mirror.
 
-**Box Blur:** Takes an input image and implements a box blur. Box blur is implemented such that by taking each pixel and, for each colour value, giving it a new value by averaging the colour values of the neighbouring pixels where applicable.
+**Box Blur:** Takes an input image and implements a box blur. Box blur is implemented by taking each pixel and, for each colour value, giving it a new value by averaging the colour values of the neighbouring pixels where applicable.
 
-**Sobel Operator:** Takes an input image and applies the Sobel operator on the given image. Like **Box Blur** edge detection works by taking each pixel, and modifying it based on a 3x3 matrix that surrounds a given pixel. However, in this scenario, we use the Sobel operator to compute the new value of each pixel by taking a weighted sum of the values for the surrounding pixels. Since edges can occur in both x and y directions within an image, we use two different "kernels" to compute the edges in a particular direction for each colour channel for a given pixel. Each channel for a given pixel will be processed using the Gx and Gy kernels, meaning that each pixel will have six(6) values. 
+**Sobel Operator:** Takes an input image and applies the Sobel operator on the given image. Like **Box Blur**, edge detection works by modifying each pixel based on a 3x3 matrix surrounding a given pixel. However, in this scenario, we use the Sobel operator to compute the new value of each pixel by taking a weighted sum of the values for the surrounding pixels. Since edges can occur in both x and y directions within an image, we use two different "kernels" to compute the edges in a particular direction for each colour channel for a given pixel. Each channel for a given pixel will be processed using the Gx and Gy kernels, meaning each pixel will have six(6) values. 
 
-If 'I' is the source image, then we can apply the kernels: Gx and Gy to each pixel within an image: 
+If 'I' is the source image, then we can apply the kernels Gx and Gy to each pixel within an image: 
 
 $$Gx=\begin{pmatrix}
 +1&0&-1\\
@@ -28,13 +28,13 @@ To combine the values for a given channel after using the kernels Gx and Gy, we 
 
 $$O=\sqrt{Gx^2 + Gy^2}$$
 
-which generates 'O' the output for a given pixel channel which squares the result for each kernel, then adds that result and finally takes the square root to normalise the result. 
+which generates 'O' the output for a given pixel channel, which squares the result for each kernel, then adds that result and finally takes the square root to normalise the result. 
 
-If the result is greater than 255, the C function fmin is used to cap the output at 255.
+If the result exceeds 255, the C function fmin is used to cap the output at 255.
 
 ## Compilation
 
-A Makefile has been provided. To compile the program, clone this repository, enter the directory then:
+A GNU Make, Makefile has been provided. To compile the program, clone this repository, enter the directory, then:
 ```console
 mahdi@malkawimahdi:~$  make filter
 ```
@@ -47,7 +47,6 @@ To apply grayscale:
 ```console
 mahdi@malkawimahdi:~$  ./filter -g INPUT_FILE.bmp OUTPUT_FILE_NAME.bmp
 ```
-
 
 To apply reflect:
 ```console
